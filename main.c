@@ -62,6 +62,7 @@ static void lv_linux_disp_init(void)
     lv_sdl_window_create(width, height);
 }
 #elif LV_USE_X11
+
 static void linux_x11_on_close_callback(lv_event_t * e)
 {
     /* Do nothing here */
@@ -82,7 +83,7 @@ static void lv_linux_disp_init(void)
 #error Unsupported configuration
 #endif
 
-int main(void)
+int main(char **argv, int argc)
 {
     lv_init();
 
@@ -96,20 +97,15 @@ int main(void)
     lv_demo_music();
 
     // lv_demo_keypad_encoder();
-
     // lv_demo_benchmark();
-
     // lv_demo_flex_layout();
-
     // lv_demo_multilang();
-
     // lv_demo_scroll();
-
     // lv_demo_transform();
-
     // lv_demo_stress();
-
     // lv_demos_show_help();
+
+
 
     /*Handle LVGL tasks*/
     while(1) {
