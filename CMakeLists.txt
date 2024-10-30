@@ -14,11 +14,14 @@ find_package(PkgConfig REQUIRED) # We use the platform independent pkg-config to
 pkg_check_modules(LIBDRM REQUIRED libdrm)
 pkg_check_modules(SDL2 REQUIRED sdl2)
 pkg_check_modules(SDL2_image REQUIRED SDL2_image)
+pkg_check_modules(X11 REQUIRED x11 x11-xcb xkbcommon-x11)
+
 
 target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR})
 target_include_directories(lvgl PRIVATE ${SDL2_INCLUDE_DIRS})
 target_include_directories(lvgl PRIVATE ${SDL2_IMAGE_INCLUDE_DIRS})
 target_include_directories(lvgl PRIVATE ${LIBDRM_INCLUDE_DIRS})
+target_include_directories(lvgl PRIVATE ${X11_INCLUDE_DIRS})
 
 target_link_libraries(main PRIVATE lvgl) # Add '-static' if you want a standalone binary
 target_link_libraries(main PRIVATE lvgl::examples)
@@ -27,6 +30,7 @@ target_link_libraries(main PRIVATE lvgl::thorvg)
 target_link_libraries(main PRIVATE ${SDL2_LIBRARIES})
 target_link_libraries(main PRIVATE ${SDL2_IMAGE_LIBRARIES})
 target_link_libraries(main PRIVATE ${LIBDRM_LIBRARIES})
+target_link_libraries(main PRIVATE ${X11_LIBRARIES})
 target_link_libraries(main PRIVATE m)
 target_link_libraries(main PRIVATE pthread)
 
