@@ -9,6 +9,7 @@ demo
 *.obj
 *.elf
 /build/
+/cmake-build-debug
 /bin/
 
 # Linker output
@@ -55,3 +56,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 /Debug/
+
+# IDEA
+/.idea
